@@ -1,7 +1,17 @@
 package com.example.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+//with @Entity annotation I turn thus class into a JPA entity
+@Entity
 public class Shipwreck {
-	Long id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	Long id;	//The annotation means that this will be the primary key, and the generatedVAlue means the value will be auto incremented
 	String name;
 	String description;
 	String condition;
