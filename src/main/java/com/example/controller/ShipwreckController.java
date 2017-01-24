@@ -35,13 +35,13 @@ public class ShipwreckController {
 	}
 	
 	@RequestMapping(value="shipwrecks/{id}", method = RequestMethod.GET)
-	public Shipwreck create(@PathVariable long id){
+	public Shipwreck get(@PathVariable long id){
 		//return ShipwreckStub.get(id);
 		return shipwreckRepository.findOne(id);
 	}
 	
 	@RequestMapping(value="shipwrecks/{id}", method = RequestMethod.PUT)
-	public Shipwreck create(@PathVariable long id, @RequestBody Shipwreck shipwreck){
+	public Shipwreck update(@PathVariable long id, @RequestBody Shipwreck shipwreck){
 		//return ShipwreckStub.update(id, shipwreck);
 		Shipwreck existingShipwreck = shipwreckRepository.getOne(id);
 		BeanUtils.copyProperties(shipwreck, existingShipwreck);
